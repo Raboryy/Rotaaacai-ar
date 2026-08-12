@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores da Identidade Visual */
+  --color-brand-yellow: #f9d22d;
+  --color-brand-white: #ffffff;
+  --color-brand-black: #000000;
+  
+  /* Você também pode mapear essas cores para variáveis semânticas padrão */
+  --color-primary: var(--color-brand-yellow);
+  --color-background: var(--color-brand-white);
+  --color-foreground: var(--color-brand-black);
+}
+
+/* Configuração base para o site priorizar essas cores globalmente */
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}

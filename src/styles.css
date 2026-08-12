@@ -1,0 +1,121 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-foreground: var(--forest-foreground);
+  --color-sand: var(--sand);
+  --color-offwhite: var(--offwhite);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lifted: var(--shadow-lifted);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* ---------------------------------------------------------------------
+   * IDENTIDADE VISUAL OFICIAL DO PROJETO (institucional/científica)
+   * -> Amarelo #f9d22d, Branco #ffffff, Preto/grafite #000-#141414
+   * -> Verde entra SÓ como detalhe pontual (ver --forest abaixo)
+   * ------------------------------------------------------------------- */
+
+  /* "forest" agora é o único lugar onde o verde ainda aparece:
+     um verde discreto, usado apenas em pequenos ícones/badges de
+     conservação ambiental. Não é mais usado em fundos de seção. */
+  --forest: oklch(0.5 0.08 155);
+  --forest-foreground: oklch(0.98 0 0);
+
+  /* "forest-deep" era o verde-escuro dominante do site antigo.
+     Agora é grafite quase preto: usado no rodapé e em blocos de
+     destaque técnico (fundo escuro institucional, sem verde). */
+  --forest-deep: oklch(0.145 0 0);
+
+  /* Amarelo oficial do projeto (#f9d22d), usado como cor "sand"
+     (bases claras de destaque) em tom bem suave, quase creme. */
+  --sand: oklch(0.97 0.03 95);
+
+  /* Cinza muito claro para alternar seções, conforme identidade visual */
+  --offwhite: oklch(0.975 0.002 0);
+
+  --background: #ffffff;
+  --foreground: #171717; /* grafite bem escuro para textos e títulos */
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+
+  /* "primary" deixa de ser verde e passa a ser preto: usado em
+     botões institucionais, links de destaque e textos-chave. */
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+
+  --secondary: oklch(0.97 0 0); /* cinza muito claro para fundos de ícone */
+  --secondary-foreground: oklch(0.145 0 0);
+  --muted: oklch(0.975 0.002 0); /* #f8f9fa aproximado */
+  --muted-foreground: oklch(0.44 0 0); /* cinza médio para textos de apoio */
+
+  /* "accent" é o amarelo oficial da identidade visual do projeto.
+     Usado em CTAs, destaques, subtítulos e sinalização. Texto sobre
+     o amarelo fica preto, que é o par de maior contraste/legibilidade.
+     Usamos o hex exato pedido (#f9d22d) em vez de uma aproximação
+     em oklch, para garantir que a cor bate 100% com a identidade. */
+  --accent: #f9d22d;
+  --accent-foreground: #000000;
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.145 0 0);
+
+  --shadow-soft: 0 2px 10px -4px oklch(0 0 0 / 0.12);
+  --shadow-lifted: 0 18px 40px -20px oklch(0 0 0 / 0.28);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
